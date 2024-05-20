@@ -1,0 +1,56 @@
+﻿@model IEnumerable<JobPortal2.Models.JobSeeker>
+
+@{
+    ViewData["Title"] = "jobseekerlist";
+}
+
+<h1>jobseekerlist</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.JobSeekerEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
+               @*  @Html.DisplayFor(modelItem => item.CV) *@
+                    <a asp-controller="JobProvider" asp-action="Download" asp-route-id="@item.JobSeekerEmail">Download</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.JobSeekerEmail)
+            </td>
+            <td>
+              @*   <a asp-action="Edit" asp-route-id="@item.JobSeekerEmail">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.JobSeekerEmail">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.JobSeekerEmail">Delete</a> *@
+                     
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

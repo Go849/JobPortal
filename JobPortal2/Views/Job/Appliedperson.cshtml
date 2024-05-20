@@ -1,0 +1,53 @@
+﻿@model IEnumerable<JobPortal2.Models.Apply>
+
+@{
+    ViewData["Title"] = "Appliedperson";
+}
+
+<h1>Appliedperson</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobSeekerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofApply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobSeekerEmail)
+            </td>
+            <td>
+             @*    @Html.DisplayFor(modelItem => item.jobid) *@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofApply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jobid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Applyid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Applyid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Applyid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
